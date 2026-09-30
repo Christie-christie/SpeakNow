@@ -1,0 +1,113 @@
+:root {
+  --bg: #0f1115;
+  --panel: #171a21;
+  --panel-2: #1f232c;
+  --border: #2a2f3a;
+  --text: #e6e8ee;
+  --muted: #9aa3b2;
+  --accent: #6d8cff;
+  --accent-2: #8b6dff;
+  --good: #4ade80;
+  --warn: #fbbf24;
+  --danger: #f87171;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 50% -10%, #1a1f2e 0%, var(--bg) 60%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; }
+
+header.app { text-align: center; margin-bottom: 28px; }
+header.app h1 {
+  margin: 0;
+  font-size: 30px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+header.app p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+
+.streak {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 12px; padding: 6px 14px; border-radius: 999px;
+  background: var(--panel); border: 1px solid var(--border);
+  font-size: 13px; color: var(--muted);
+}
+.streak b { color: var(--warn); }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+.timer { text-align: center; }
+.timer .clock { font-size: 52px; font-weight: 700; letter-spacing: 1px; font-variant-numeric: tabular-nums; }
+.timer .state { color: var(--muted); font-size: 14px; margin-top: 2px; }
+.timer .state.rec { color: var(--danger); }
+
+.controls { display: flex; gap: 12px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
+
+button {
+  font: inherit; font-weight: 600; cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--panel-2); color: var(--text);
+  padding: 12px 22px; border-radius: 10px;
+  transition: transform .06s ease, background .15s ease, opacity .15s ease;
+}
+button:hover { background: #262b36; }
+button:active { transform: translateY(1px); }
+button:disabled { opacity: .45; cursor: not-allowed; }
+
+button.primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); border: none; color: white; }
+button.danger { background: #3a2226; border-color: #5b2b30; color: #ffb4b4; }
+
+.transcript {
+  min-height: 90px; white-space: pre-wrap; line-height: 1.6;
+  background: var(--panel-2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px; margin-top: 8px; font-size: 16px;
+}
+.transcript.empty { color: var(--muted); font-style: italic; }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 4px; }
+.stat { background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; }
+.stat .num { font-size: 24px; font-weight: 700; }
+.stat .lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.tips { list-style: none; padding: 0; margin: 12px 0 0; }
+.tips li {
+  background: var(--panel-2); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 8px; font-size: 14px; line-height: 1.5;
+}
+
+h2.section { font-size: 16px; margin: 0 0 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+
+.history-item {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--panel-2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 14px; margin-bottom: 8px;
+}
+.history-item .meta { font-size: 13px; color: var(--muted); }
+.history-item .date { font-weight: 600; color: var(--text); font-size: 14px; }
+.history-item button { padding: 6px 12px; font-size: 13px; }
+
+.notice { background: #2a2320; border: 1px solid #4a3a2a; color: #ffd8a8; padding: 12px 14px; border-radius: 10px; font-size: 14px; margin-bottom: 18px; }
+
+.footnote { text-align: center; color: var(--muted); font-size: 12px; margin-top: 24px; }
+
+@media (max-width: 520px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .timer .clock { font-size: 44px; }
+}
